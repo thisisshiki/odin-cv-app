@@ -239,9 +239,10 @@ export function CVPreview({ data }: PreviewProps) {
           <p>Please reduce the content to fit within two pages.</p>
         </div>
       )}
-      <div className="space-y-8">
+    
+      <div className="space-y-8 scale-90">
         {/* First Page */}
-        <div className="bg-white shadow-lg w-[210mm] mx-auto relative p-8">
+        <div className="bg-white shadow-lg w-[210mm] h-[297mm] mx-auto relative p-8">
           <div className="absolute top-4 right-4">
             <PDFDownloadLink
               document={<CVDocument data={data} />}
@@ -264,12 +265,33 @@ export function CVPreview({ data }: PreviewProps) {
             </div>
 
             {/* Contact info and other sections */}
-            {/* ... Previous sections remain the same until Education ... */}
+            <div className="space-y-2">
+              <p>Email: {data.generalInfo.email}</p>
+              <p>Phone: {data.generalInfo.phone}</p>
+              {data.generalInfo.links.linkedin && <p>LinkedIn: {data.generalInfo.links.linkedin}</p>}
+              {data.generalInfo.links.github && <p>GitHub: {data.generalInfo.links.github}</p>}
+              {data.generalInfo.links.portfolio && <p>Portfolio: {data.generalInfo.links.portfolio}</p>}
+            </div>
+
+          {/* Languages section with updated layout */}
+          <div className="mb-8">
+              <h2 className="text-xl font-bold mb-4 pb-2 border-b border-gray-300">Languages</h2>
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-4">
+                  {data.languages.map((lang) => (
+                    <div key={lang.id} className="flex items-center gap-2">
+                      <span className='font-bold'>{lang.language}</span>
+                      <span className="text-gray-600">({lang.proficiency})</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Education section with updated layout */}
             <div className="mb-8">
               <h2 className="text-xl font-bold mb-4 pb-2 border-b border-gray-300">Education</h2>
-              <div className="space-y-4">
+              <div className="space-y-4"> 
                 {data.education.map((edu) => (
                   <div key={edu.id} className="flex justify-between">
                     <div>
@@ -317,12 +339,12 @@ export function CVPreview({ data }: PreviewProps) {
 
         {/* Page Divider */}
         {hasSecondPage && (
-          <div className="h-8 bg-gray-100 w-[210mm] mx-auto border-t border-b border-gray-200" />
+          <div className="h-1 bg-gray-100 w-[210mm] mx-auto border-t border-b border-gray-200" />
         )}
 
         {/* Second Page */}
         {hasSecondPage && (
-          <div className="bg-white shadow-lg w-[210mm] mx-auto relative p-8">
+          <div className="bg-white shadow-lg w-[210mm] h-[297mm] mx-auto relative p-8">
             {/* Projects section with updated layout */}
             {data.projects.length > 0 && (
               <div className="mb-8">

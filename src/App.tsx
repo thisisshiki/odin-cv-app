@@ -245,7 +245,7 @@ function App() {
     <div className="min-h-screen bg-gray-100">
       <div className="flex">
         {/* Editor Panel */}
-        <div className="w-1/2 min-h-screen p-8 overflow-y-auto">
+        <div className="w-2/5 min-h-screen p-8 overflow-y-auto">
           <div className="max-w-2xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
               <FileText className="w-8 h-8 text-blue-600" />
@@ -452,7 +452,7 @@ function App() {
         </div>
 
         {/* Preview Panel */}
-        <div className="w-1/2 min-h-screen bg-gray-200 p-8 overflow-y-auto relative">
+        <div className="w-3/5 min-h-screen bg-gray-200 overflow-y-auto relative">
           <CVPreview data={data} />
           <div className="text-center text-gray-500 mt-8 mb-16">
             © {new Date().getFullYear()} CV Builder. All rights reserved.
