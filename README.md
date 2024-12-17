@@ -1,4 +1,4 @@
-##odin-todo-list
+## odin-todo-list
 
 Project detail: https://www.theodinproject.com/lessons/node-path-react-new-cv-application
 
